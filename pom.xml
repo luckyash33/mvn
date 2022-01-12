@@ -1,176 +1,53 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project>
-    <modelVersion>4.0.0</modelVersion>
-    <packaging>war</packaging>
-    <name>test</name>
-    <artifactId>mavenproject</artifactId>
-    <groupId>sampleproject</groupId>
-    <version>1.0</version>
-
-    <description>An example Java 8 project using Maven and JUnit 5.x</description>
-
-    <url>https://github.com/example/test</url>
-
-    <licenses>
-        <license>
-            <name>MIT</name>
-            <url>https://spdx.org/licenses/MIT.html</url>
-            <distribution>repo</distribution>
-        </license>
-    </licenses>
-
-    <organization>
-        <name>Example Organization</name>
-        <url>http://example.com/</url>
-    </organization>
-
-    <scm>
-        <url>https://github.com/example/test</url>
-        <connection>git@github.com:example/test.git</connection>
-        <developerConnection>git@github.com:example/test.git</developerConnection>
-    </scm>
-
-    <issueManagement>
-        <system>Issues</system>
-        <url>https://github.com/example/test/issues</url>
-    </issueManagement>
-
-    <ciManagement>
-        <system>Pipelines</system>
-        <url>https://github.com/example/test/pipelines</url>
-    </ciManagement>
-
-    <contributors>
-        <contributor>
-            <name>Some Contributor</name>
-            <email>some.contributor@example.com</email>
-            <url>http://example.com/</url>
-            <organization>Example Organization</organization>
-            <organizationUrl>http://example.com/</organizationUrl>
-            <roles>
-                <role>scrum-master</role>
-            </roles>
-            <timezone>Europe/Amsterdam</timezone>
-        </contributor>
-        <contributor>
-            <name>Another Contributor</name>
-            <email>another.contributor@example.com</email>
-            <url>http://example.com/</url>
-            <organization>Example Organization</organization>
-            <organizationUrl>http://example.com/</organizationUrl>
-            <roles>
-                <role>product-owner</role>
-            </roles>
-            <timezone>Europe/Amsterdam</timezone>
-        </contributor>
-    </contributors>
-
-    <developers>
-        <developer>
-            <id>somedev</id>
-            <email>some.developer@example.com</email>
-            <name>Some Developer</name>
-            <organization>Example Organization</organization>
-            <organizationUrl>http://example.com/</organizationUrl>
-            <roles>
-                <role>architect</role>
-                <role>developer</role>
-            </roles>
-            <timezone>Europe/Amsterdam</timezone>
-        </developer>
-        <developer>
-            <id>otherdev</id>
-            <email>other.developer@example.com</email>
-            <name>Other Developer</name>
-            <organization>Example Organization</organization>
-            <organizationUrl>http://example.com/</organizationUrl>
-            <roles>
-                <role>architect</role>
-                <role>developer</role>
-            </roles>
-            <timezone>Europe/Amsterdam</timezone>
-        </developer>
-    </developers>
-
-    <properties>
-
-    <failOnMissingWebXml>false</failOnMissingWebXml>   
-
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <main.class>com.example.test.HelloWorld</main.class>
-        <java.version>8</java.version>
-        <junit.jupiter.version>5.4.2</junit.jupiter.version>
-<maven-war-plugin.version>3.1.0</maven-war-plugin.version>
-     
-   <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
-        <maven.jar.plugin.version>3.1.1</maven.jar.plugin.version>
-        <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
-    </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
-        </dependency>
-<dependency>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-war-plugin</artifactId>
-    <version>3.1.0</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>mavenproject</groupId>
+  <artifactId>sampleproject</artifactId>
+  <version>1.0</version>
+  <packaging>war</packaging>
+  <name>WAR Web Project</name>
+  <description>A very simple Maven-enabled WAR web project</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.google.code.gson</groupId>
+  		<artifactId>gson</artifactId>
+  		<version>2.3.1</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>javax.ws.rs</groupId>
+  		<artifactId>javax.ws.rs-api</artifactId>
+  		<version>2.0.1</version>
+  		<scope>provided</scope>
+	</dependency>
+	<dependency>
+    <groupId>org.apache.maven.plugin-tools</groupId>
+    <artifactId>maven-script-beanshell</artifactId>
+    <version>3.6.2</version>
+    <scope>test</scope>
 </dependency>
-    </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven.compiler.plugin.version}</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <showWarnings>true</showWarnings>
-                    <showDeprecation>true</showDeprecation>
-                </configuration>
-            </plugin>
-<plugin>
-    <artifactId>maven-war-plugin</artifactId>
-    <version>3.1.0</version>
-    <configuration>
-        <failOnMissingWebXml>false</failOnMissingWebXml>
-    </configuration>
-</plugin>
-<plugin>            
-  <groupId>org.apache.maven.plugins</groupId>
-  <artifactId>maven-war-plugin</artifactId>
-<version>3.1.0</version>
-  <configuration>
-    <webXml>src\main\webapp\WEB-INF\web.xml</webXml>        
-  </configuration>
-
-
-
-</plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>${maven.jar.plugin.version}</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>${main.class}</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven.surefire.plugin.version}</version>
-            </plugin>
-        </plugins>
-    </build>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.1</version>
+	<configuration>
+		<!-- Optionally specify where the web.xml file comes from -->
+          <webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+          <!-- Optionally specify extra resources to include -->
+          <webResources>
+            <resource>
+              <directory>src/main/resources</directory>
+              <targetPath>WEB-INF</targetPath>
+              <includes>
+                <include>**/*</include>
+              </includes>
+            </resource>
+          </webResources>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 </project>
